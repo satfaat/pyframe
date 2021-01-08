@@ -4,18 +4,24 @@ Routes and views for the flask application.
 
 from datetime import datetime
 from flask import render_template
-from fapp import app
+from fapl import app
 
 
 @app.route('/')
-@app.route('/home')
-def home():
+@app.route('/index')
+def index():
     """Renders the home page."""
     return render_template(
-        'index.html',
+        'base.html',
         title='Home Page',
         year=datetime.now().year,
     )
+
+app.add_url_rule('/', 'index', index)
+
+@app.route('/user/<name>')
+def user(name):
+    return '<h1>Hello,  {}!</h1>'.format(name)
 
 @app.route('/contact')
 def contact():
