@@ -4,7 +4,12 @@ Routes and views for the flask application.
 
 from datetime import datetime
 from flask import render_template
+from flask.globals import request
 from fapl import app
+
+def rec_lnk(req):
+    with open('fapl/dt/lnks.txt', 'a') as lnks:
+        print(req, file=lnks)
 
 
 @app.route('/')
@@ -17,7 +22,7 @@ def index():
         year=datetime.now().year,
     )
 
-app.add_url_rule('/', 'index', index)
+# app.add_url_rule('/', 'index', index)
 
 @app.route('/user/<name>')
 def user(name):
@@ -60,3 +65,31 @@ def view_the_log()-> 'html':
                                 the_title='View Log',
                                 the_row_titles = titles,
                                 the_data = contents,)
+
+@app.route('/entry')
+def entry_page() -> 'html':
+    return render_template('entry.html',
+                           the_title='Welcome to search4letters on the web!')
+
+@app.route('/lnk', methods=['POST'])
+def lnk_add_rec() -> 'html':
+    link = request.form['link']
+    rec_lnk(link)
+    with open('fapl/dt/lnks.txt', 'r') as lnks:
+        contents = lnks.readlines()
+    return render_template('lnk-add.html',
+                           the_title='add link',
+                           the_link = link,
+                           the_links=contents,)
+
+@app.route('/lnk')
+def lnk_add() -> 'html':
+    return render_template('lnk-add.html',)                  
+
+@app.route('/wrk')
+def wrk_show() -> 'html':
+    with open('../devops/wrk/tdserebro/data.txt') as wrk:
+        contents = wrk.read()
+    return render_template('wrk.html',
+                            the_title='Notes',
+                            content = contents,)

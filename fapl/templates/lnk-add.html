@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+   <main>
+   <h2>{{ the_title }}</h2>
+
+   <form method="POST" action="/lnk">
+      <table>
+         <tr>
+            <td>link:</td>
+            <td>
+               <input name="link" type="TEXT" width="60"> 
+            </td>
+         </tr>
+      </table>
+      <p>
+         <input value="Add link" type="submit">
+      </p>
+   </form>
+
+   {% for link in the_links %}
+      <a class="btn_lnk_1" href="{{link}}" target="_blank">{{link}}</a>
+   {% endfor %}
+
+   </main>
+
+{% endblock %}
