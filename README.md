@@ -8,7 +8,9 @@
 `source d:/devgit/pytest/.venv/Scripts/activate`
 `source .venv/bin/activate`
 
+
 `pip install -r requirements.txt`
+`pip install -U pylint`
 
 ### End
     `deactivate`
