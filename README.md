@@ -1,10 +1,12 @@
 ## installation
 
 `python -m venv .venv`
+`sudo apt install python3-venv`
 
 ### Start
 `.venv\Scripts\activate`
 `source d:/devgit/pytest/.venv/Scripts/activate`
+`source .venv/bin/activate`
 
 `pip install -r requirements.txt`
 
