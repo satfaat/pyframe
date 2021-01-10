@@ -7,6 +7,7 @@ from flask import render_template
 from flask.globals import request
 from fapl import app
 
+
 def rec_lnk(req):
     with open('fapl/dt/lnks.txt', 'a') as lnks:
         print(req, file=lnks)
@@ -93,3 +94,19 @@ def wrk_show() -> 'html':
     return render_template('wrk.html',
                             the_title='Notes',
                             content = contents,)
+
+@app.route('/info')
+def info():
+    user_agent = request.headers.get('User-Agent')
+    return render_template('info.html',
+                            the_user_agent = user_agent,
+                            the_title = 'Info',
+                            current_time=datetime.utcnow())
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
