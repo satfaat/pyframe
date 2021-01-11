@@ -1,10 +1,25 @@
-from flask import Flask
+from flask import Flask, render_template
+from flask_mail import Mail
 from flask_moment import Moment
+from flask_sqlalchemy import SQLAlchemy
+from config import config
 
 
-app = Flask(__name__)
-moment = Moment(app)
-app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
-app.config['SECRET_KEY'] = mykey
+moment = Moment()
+mail = Mail()
+db = SQLAlchemy()
 
-from fapl import views
+def create_app(config_name):
+    app = Flask(__name__)
+    app.config.from_object(config[config_name])
+    config[config_name].init_app(app)
+    app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
+
+    mail.init_app(app)
+    moment.init_app(app)
+    db.init_app(app)
+
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+    return app

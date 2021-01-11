@@ -15,6 +15,13 @@
 ### End
     `deactivate`
 
+#### for Linux
+`(venv) $ export FLASK_APP=flasky.py`
+`(venv) $ export FLASK_DEBUG=1`
+#### for Microsoft Windows:
+`(venv) $ set FLASK_APP=flasky.py`
+`(venv) $ set FLASK_DEBUG=1`
+
 ## flask
 http://127.0.0.1:5000/
 win:
