@@ -6,6 +6,7 @@ from datetime import datetime
 from flask import render_template
 from flask.globals import request
 from fapl import app
+#from flsky import app
 
 
 def rec_lnk(req):
@@ -67,6 +68,7 @@ def view_the_log()-> 'html':
                                 the_row_titles = titles,
                                 the_data = contents,)
 
+
 @app.route('/entry')
 def entry_page() -> 'html':
     return render_template('entry.html',
@@ -98,7 +100,11 @@ def wrk_show() -> 'html':
 @app.route('/info')
 def info():
     user_agent = request.headers.get('User-Agent')
+    data = {
+        'title': 'Info',
+        'user_agent': user_agent,
+    }
     return render_template('info.html',
-                            the_user_agent = user_agent,
-                            the_title = 'Info',
+                            data = data,
                             current_time=datetime.utcnow())
+

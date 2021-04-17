@@ -1,0 +1,19 @@
+from flask import Flask
+#from flask.ext.sqlalchemy import SQLAlchemy
+from flask_moment import Moment
+
+from fapl.users.views import users  # blueprint-based architecture
+
+
+
+app = Flask(__name__)
+app.register_blueprint(users, url_prefix='/users')
+moment = Moment(app)
+app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../snap.db'
+#db = SQLAlchemy(app)
+
+
+import fapl.models
+import fapl.views

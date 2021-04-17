@@ -1,25 +1,29 @@
-from flask import Flask, render_template
-from flask_mail import Mail
+from flask import Flask
+#from flask.ext.sqlalchemy import SQLAlchemy
 from flask_moment import Moment
-from flask_sqlalchemy import SQLAlchemy
 from config import config
 
+from fapl.users.views import users  # blueprint-based architecture
 
 moment = Moment()
-mail = Mail()
-db = SQLAlchemy()
 
-def create_app(config_name):
+def create_app(from_config):
     app = Flask(__name__)
-    app.config.from_object(config[config_name])
-    config[config_name].init_app(app)
-    app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
+    app.config.from_object(config[from_config])
+    config[from_config].init_app(app)
 
-    mail.init_app(app)
     moment.init_app(app)
-    db.init_app(app)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    #from fapl import views
+
     return app
+
+
+#app.register_blueprint(users, url_prefix='/users')
+#app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
+
+#import fapl.models
+#import fapl.views

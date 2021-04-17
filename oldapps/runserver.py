@@ -3,7 +3,7 @@ This script runs the FlaskWeb application using a development server.
 """
 
 from os import environ
-from fapl import app
+from fapl import app  # app in __init__ file
 
 if __name__ == '__main__':
     HOST = environ.get('SERVER_HOST', 'localhost')

@@ -2,13 +2,33 @@
 
 {% block body %}
    <main>
-   <h2>{{ the_title }}</h2>
+      <div class="menu-icon" onclick="myFunction(this)">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+      </div>
 
-   <p>
-      {{the_user_agent}}
-   </p>
-   <p>The local date and time is {{ moment(current_time).format('LLL') }}</p>
-   <p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+      <div id="mmenu" class="overlay">
+
+         <!-- Button to close the overlay navigation -->
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+       
+         <!-- Overlay content -->
+         <div class="overlay-content">
+           <a href="#">About</a>
+           <a href="#">Services</a>
+           <a href="#">Clients</a>
+           <a href="#">Contact</a>
+         </div>
+      </div>
+
+      <h2>{{ data['title'] }}</h2>
+
+      <p>
+         {{ data['user_agent']}}
+      </p>
+      <p>The local date and time is {{ moment(data['current_time']).format('LLL') }}</p>
+      <p>That was {{ moment(data['current_time']).fromNow(refresh=True) }}</p>
 
 <p>A value from a dictionary: {#{ mydict['key'] }#}.</p>
 <p>A value from a list: {#{ mylist[3] }#}.</p>
