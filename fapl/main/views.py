@@ -1,11 +1,12 @@
 from datetime import datetime
+
+from flask import redirect, render_template, session, url_for
 from flask.globals import request
 
-from flask import render_template, session, redirect, url_for
-
-from . import main
 #from .forms import NameForm
 from .. import db
+from . import main
+
 #from ..models import User
 
 
@@ -23,25 +24,30 @@ from .. import db
 @main.route('/index')
 def index():
     """Renders the home page."""
-    
     data = {
-        'template_name': 'base.html'
+        'template_name': 'base.html',
+        'title': 'Home Page',
+        'year': datetime.now().year,
     }
     return render_template(
         data['template_name'],
-        title='Home Page',
-        year=datetime.now().year,
+        data=data,
     )
 
 
 @main.route('/info')
 def info():
-
     data = {
         'template_name': 'info.html',
-        'title': 'Info',
+        'title': 'Info_main',
         'user_agent': request.headers.get('User-Agent'),
         'current_time': datetime.utcnow()
     }
     return render_template(data['template_name'],
-                            data = data,)
+                            data=data,)
+
+
+@main.route('/api/data')
+def get_data():
+    content = main.send_static_file('data.json')
+    return content

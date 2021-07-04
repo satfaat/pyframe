@@ -2,6 +2,7 @@
 dt/
 db/
 .logs/
+static/img/
 
 # my files
 config.py

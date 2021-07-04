@@ -6,7 +6,6 @@ from datetime import datetime
 from flask import render_template
 from flask.globals import request
 from fapl import app
-#from flsky import app
 
 
 def rec_lnk(req):
@@ -101,7 +100,7 @@ def wrk_show() -> 'html':
 def info():
     user_agent = request.headers.get('User-Agent')
     data = {
-        'title': 'Info',
+        'title': 'Info_1',
         'user_agent': user_agent,
     }
     return render_template('info.html',
