@@ -26,6 +26,7 @@ touch app/{__init__,app,config,main,views}.py
 ### Start {#start}
 ```
 .venv\Scripts\activate
+source .venv/Scripts/activate # for windows wth bash
 source d:/devgit/pytest/.venv/Scripts/activate
 source .venv/bin/activate
 ```
@@ -53,6 +54,7 @@ python -m pip install --upgrade pip
 
 ## FLASK {#flask}
 [flask host](http://127.0.0.1:5000/)
+[fast api](http://127.0.0.1:8000)
 
 
 ## FastAPI {#fastapi}
