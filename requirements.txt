@@ -9,3 +9,5 @@ fastapi[all]
 #uvicorn[standard]
 #Jinja2
 aiofiles
+markdown
+python-multipart
