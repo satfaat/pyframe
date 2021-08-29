@@ -3,9 +3,13 @@ dt/
 db/
 .logs/
 static/img/
+.venvfl/
+.venvfapi/
 
 # my files
 config.py
+
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

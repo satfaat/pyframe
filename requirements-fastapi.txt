@@ -1,0 +1,6 @@
+
+#fastapi[all]
+fastapi
+uvicorn[standard]
+Jinja2
+aiofiles
