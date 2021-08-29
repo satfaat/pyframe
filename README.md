@@ -12,6 +12,8 @@
 ```
 sudo apt install python3-venv
 python -m venv .venv
+# .venvfl
+# .venvfapi
 ```
 
 ```
@@ -25,13 +27,14 @@ touch app/{__init__,app,config,main,views}.py
 
 ### Start {#start}
 ```
-.venv\Scripts\activate
-source .venv/Scripts/activate # for windows wth bash
+.venv\Scripts\activate  # for powershell
+source .venv/Scripts/activate  # for windows wth bash
 source d:/devgit/pytest/.venv/Scripts/activate
 source .venv/bin/activate
 ```
 
 ```
+pip list # to check what we have
 pip install -r requirements.txt
 pip install -U pylint
 python -m pip install --upgrade pip
@@ -40,13 +43,13 @@ python -m pip install --upgrade pip
 ### End {#end}
     `deactivate`
 
-#### for Linux {#for_linux}
+#### Flask for Linux {#for_linux}
 ```
 (venv) $ export FLASK_APP=flasky.py
 (venv) $ export FLASK_DEBUG=1
 ```
 
-#### for Microsoft Windows: {#for_windows}
+#### Flask for Microsoft Windows: {#for_windows}
 ```
 (venv) $ set FLASK_APP=flasky.py
 (venv) $ set FLASK_DEBUG=1
