@@ -1,6 +1,7 @@
 Flask
 flask-moment
 flask-wtf
+#WTForms
 flask-sqlalchemy
 flask-mail
 Flask-Markdown

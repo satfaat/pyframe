@@ -14,9 +14,10 @@ sudo apt install python3-venv
 python -m venv .venv
 # .venvfl
 # .venvfapi
+# .wget
 ```
 
-```
+```bash
 mkdir -p ~/src/snap && cd ~/src/snap
 mkvirtualenv snap -i flask
 ```
@@ -26,14 +27,14 @@ touch app/{__init__,app,config,main,views}.py
 ```
 
 ### Start {#start}
-```
+```bash
 .venv\Scripts\activate  # for powershell
 source .venv/Scripts/activate  # for windows wth bash
 source d:/devgit/pytest/.venv/Scripts/activate
 source .venv/bin/activate
 ```
 
-```
+```bash
 pip list # to check what we have
 pip install -r requirements.txt
 pip install -U pylint
