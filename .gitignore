@@ -3,12 +3,13 @@ dt/
 db/
 .logs/
 static/img/
+static/data/
 .venvfl/
 .venvfapi/
+.wget/
 
 # my files
 config.py
-
 
 
 # Byte-compiled / optimized / DLL files
