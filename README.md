@@ -42,8 +42,7 @@
 
 <section class="content">
 
-## FLASK {#flask}
-- [flask host](http://127.0.0.1:5000/)
+
 
 ### installation {#installation}
 ```
@@ -81,9 +80,12 @@ source d:/devgit/pytest/.venv/Scripts/activate
 source .venv/bin/activate
 ```
 
+#### FLASK {#flask}
+- [flask host](http://127.0.0.1:5000/)
+
 <div class="grid"><article>
 
-#### Windows:
+##### Windows:
 ```
 cd D:\devgit\flask
 
@@ -93,14 +95,15 @@ set FLASK_ENV=development
 flask run  # start off in app
 python app.py  # start off in __main__
 ```
-##### powerShell
+
+###### powerShell
 ```
 $env:FLASK_APP = "webapp"
 ```
 
 </article><article>
 
-#### Linux
+##### Linux
 ```
 export FLASK_APP=flasky.py
 export FLASK_DEBUG=1
