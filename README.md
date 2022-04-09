@@ -1,3 +1,36 @@
+<style>
+    body { 
+        background-color: hsl(250, 50%, 5%);
+        color: hwb(177 90% 0%);
+    }
+    *, *::before, *::after {
+        box-sizing:border-box;
+        -moz-box-sizing: border-box; 
+        -webkit-box-sizing: border-box;
+    }
+    .clearfix::after, .row::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px;
+        box-shadow: 0 1px 3px rgba(14, 9, 9, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7);
+        border-radius: 30px;
+     }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-gap: 1rem;
+        padding: 0 1rem;
+    }
+    /*TEXT*/
+</style>
+
+# prj.name = web.py
+
 - <a href="#installation">installation</a>
     - [start](#start)
     - [end](#end)
@@ -7,8 +40,12 @@
 - [fastapi](#fastapi)
 - [](#)
 
+<section class="content">
 
-## installation {#installation}
+## FLASK {#flask}
+- [flask host](http://127.0.0.1:5000/)
+
+### installation {#installation}
 ```
 sudo apt install python3-venv
 python -m venv .venv
@@ -25,14 +62,6 @@ mkdir app
 touch app/{__init__,app,config,main,views}.py
 ```
 
-### Start {#start}
-```
-.venv\Scripts\activate  # for powershell
-source .venv/Scripts/activate  # for windows wth bash
-source d:/devgit/pytest/.venv/Scripts/activate
-source .venv/bin/activate
-```
-
 ```
 pip list # to check what we have
 pip install -r requirements.txt
@@ -40,29 +69,58 @@ pip install -U pylint
 python -m pip install --upgrade pip
 ```
 
+<div class="grid">
+<article>
+
+### Start{#start}
+```
+.venv\Scripts\activate  # for powershell
+source .venv/Scripts/activate  # for windows wth bash
+source d:/devgit/pytest/.venv/Scripts/activate
+source .venv/bin/activate
+```
+
+<div class="grid"><article>
+
+#### Windows:
+```
+cd D:\devgit\flask
+
+set FLASK_APP=frun.py
+set FLASK_DEBUG=1
+set FLASK_ENV=development
+flask run  # start off in app
+python app.py  # start off in __main__
+```
+##### powerShell
+```
+$env:FLASK_APP = "webapp"
+```
+
+</article><article>
+
+#### Linux
+```
+export FLASK_APP=flasky.py
+export FLASK_DEBUG=1
+export FLASK_ENV=development
+flask run
+```
+</article></div>
+
+</article>
+<article>
+
 ### End {#end}
     `deactivate`
-
-#### Flask for Linux {#for_linux}
-```
-(venv) $ export FLASK_APP=flasky.py
-(venv) $ export FLASK_DEBUG=1
-```
-
-#### Flask for Microsoft Windows: {#for_windows}
-```
-(venv) $ set FLASK_APP=flasky.py
-(venv) $ set FLASK_DEBUG=1
-```
-
-## FLASK {#flask}
-[flask host](http://127.0.0.1:5000/)
-[fast api](http://127.0.0.1:8000)
+</article>
+</div>
 
 
 ## FastAPI {#fastapi}
+- [fast api](http://127.0.0.1:8000)
 
-```
+```bash
 pip install fastapi
 pip install uvicorn[standard]
 ```
@@ -76,6 +134,10 @@ uvicorn app.main:app --reload --port 8080
 - app: the object created inside of main.py with the line app = FastAPI().
 - --reload: make the server restart after code changes. Only do this for development.
 
+
+<details>
+    <summary>links</summary>
+
 - [fastapi](https://fastapi.tiangolo.com/)
 - [uvicorn](https://www.uvicorn.org/)
 - [local docs](http://127.0.0.1:8000/docs)
@@ -85,31 +147,7 @@ uvicorn app.main:app --reload --port 8080
 - [async](https://fastapi.tiangolo.com/async/#in-a-hurry)
 - [](https://levelup.gitconnected.com/building-a-website-starter-with-fastapi-92d077092864)
 
-
-### Windows:
-```
-cd D:\devgit\flask
-
-set FLASK_APP=frun.py
-set FLASK_DEBUG=1
-set FLASK_ENV=development
-flask run  # start off in app
-python app.py  # start off in __main__
-```
-### Linux
-```
-export FLASK_APP=flsky.py
-export FLASK_DEBUG=1
-export FLASK_ENV=development
-flask run
-```
-
-### powerShell
-```
-$env:FLASK_APP = "webapp"
-```
-
-## shell
+</details>
 
 
 ## sql
@@ -137,3 +175,4 @@ pip install pymongo
 
 -[markdown](https://www.w3schools.io/file/markdown-checkbox-github/)
 
+</section>
