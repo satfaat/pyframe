@@ -1,3 +1,4 @@
+from methods.reader import open_json, open_md
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -5,12 +6,10 @@ from fastapi.staticfiles import StaticFiles
 from typing import Optional
 from pydantic import BaseModel
 
-from .libra.helpers import *
-
 
 app = FastAPI()
-app.mount('/static', StaticFiles(directory='static'), name='static')
-templates = Jinja2Templates(directory='templates')
+app.mount('/static', StaticFiles(directory='../static'), name='static')
+templates = Jinja2Templates(directory='../templates')
 
 
 class Item(BaseModel):
@@ -21,29 +20,41 @@ class Item(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    data = {
+    data_htm = {
         'template_name': 'index.html',
         'title': 'Home page',
         'page': 'index',
-        'md_content': openfile('home.md')
+        'md_content': open_md('home.md')
     }
     return templates.TemplateResponse(
-        data['template_name'],
-        {'request': request, 'data': data}
+        data_htm['template_name'],
+        {'request': request, 'data': data_htm}
     )
 
 
 @app.get("/page/{page_name}")
-async def page(request: Request ,page_name: str):
+async def page(request: Request, page_name: str):
     data = {
         'template_name': 'index.html',
         "page": page_name,
-        'md_content': openfile(page_name+'.md')
+        'md_content': open_md(page_name+'.md')
     }
     return templates.TemplateResponse(
         data['template_name'],
         {'request': request, 'data': data}
     )
+
+@app.get('/json')
+def read_json():
+    return open_json('../lib.dt/', 'people.json')
+
+@app.get('/other')
+def wrk():
+    return open_json('../../../.moon/dts/', 'alpha.json')
+
+@app.get("/items/{id}", response_class=HTMLResponse)
+async def read_item(request: Request, id: str):
+    return templates.TemplateResponse("item.html", {"request": request, "id": id})
 
 @app.get("/items/{item_id}")
 async def read_item(item_id: int, q: Optional[str] = None):

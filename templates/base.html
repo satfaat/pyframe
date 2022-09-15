@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html><html lang="en">
 <head>
     {% block head %}
     <meta charset="utf-8">
@@ -14,6 +12,14 @@
     <!-- Custom CSS -->
     <link href="{{ url_for('static', path='/css/style3.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/layout.css') }}" rel="stylesheet">
+
+
+<!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script> 
+<py-env>
+    - paths:
+      - ../methods/py/test.py
+</py-env> -->
 
     {% endblock %}
 </head>

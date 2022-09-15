@@ -5,8 +5,11 @@ db/
 static/img/
 static/data/
 .venvfl/
+.venv.fl
 .venvfapi/
+.envfapi/
 .wget/
+.env*
 
 # my files
 config.py

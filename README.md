@@ -26,10 +26,9 @@
         grid-gap: 1rem;
         padding: 0 1rem;
     }
-    /*TEXT*/
 </style>
 
-# prj.name = web.py
+# prj.name = web.py web.server
 
 - <a href="#installation">installation</a>
     - [start](#start)
@@ -41,8 +40,6 @@
 - [](#)
 
 <section class="content">
-
-
 
 ### installation {#installation}
 ```
@@ -117,8 +114,7 @@ flask run
 
 ### End {#end}
     `deactivate`
-</article>
-</div>
+</article></div>
 
 
 ## FastAPI {#fastapi}
@@ -129,7 +125,7 @@ pip install fastapi
 pip install uvicorn[standard]
 ```
 ```
-uvicorn main:app --reload
+uvicorn main:app --reload  # main.py app is object
 uvicorn sql_app.main:app --reload
 uvicorn app.main:app --reload --port 8080
 ```
@@ -139,8 +135,7 @@ uvicorn app.main:app --reload --port 8080
 - --reload: make the server restart after code changes. Only do this for development.
 
 
-<details>
-    <summary>links</summary>
+<details><summary>links</summary>
 
 - [fastapi](https://fastapi.tiangolo.com/)
 - [uvicorn](https://www.uvicorn.org/)
