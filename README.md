@@ -36,8 +36,7 @@
         - [for linux](#for_linux)
         - [for Microsoft Windows](#for_windows)
 - [flask](#flask)
-- [fastapi](#fastapi)
-- [](#)
+
 
 <section class="content">
 
@@ -114,64 +113,4 @@ flask run
 
 ### End {#end}
     `deactivate`
-</article></div>
-
-
-## FastAPI {#fastapi}
-- [fast api](http://127.0.0.1:8000)
-
-```bash
-pip install fastapi
-pip install uvicorn[standard]
-```
-```
-uvicorn main:app --reload  # main.py app is object
-uvicorn sql_app.main:app --reload
-uvicorn app.main:app --reload --port 8080
-```
-
-- main: the file main.py (the Python "module").
-- app: the object created inside of main.py with the line app = FastAPI().
-- --reload: make the server restart after code changes. Only do this for development.
-
-
-<details><summary>links</summary>
-
-- [fastapi](https://fastapi.tiangolo.com/)
-- [uvicorn](https://www.uvicorn.org/)
-- [local docs](http://127.0.0.1:8000/docs)
-- [localhost](http://127.0.0.1:8000/)
-- [local redoc](http://127.0.0.1:8000/redoc)
-- [tutorial](https://fastapi.tiangolo.com/tutorial/)
-- [async](https://fastapi.tiangolo.com/async/#in-a-hurry)
-- [](https://levelup.gitconnected.com/building-a-website-starter-with-fastapi-92d077092864)
-
-</details>
-
-
-## sql
-```
-import sqlalchemy
-sqlalchemy.__version__
-```
-## mongo {#mongo}
-[mongodb-python](https://www.mongodb.com/python)
-```
-python -m pip install pymongo
-pip install pymongo
-```
-
-## Links {#links}
-* [palletsprojects](https://flask.palletsprojects.com/en/1.1.x/)
-* [flask quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
-* []()
-
-## VSC
-| command | description |
---- | --- 
-| Ctrl+/  | # comment all rows |
-| View > Command Palette or Ctrl+Shift+P | |
-
--[markdown](https://www.w3schools.io/file/markdown-checkbox-github/)
-
-</section>
+</article></div></section>
