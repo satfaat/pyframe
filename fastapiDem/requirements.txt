@@ -1,0 +1,14 @@
+# web
+fastapi
+uvicorn
+# test
+httpx
+pydantic
+jsonschema
+pytest
+# report
+allure-pytest
+# Config
+python-dotenv
+# other
+autopep8
